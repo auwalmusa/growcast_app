@@ -1,13 +1,13 @@
+I see a couple of issues that need correction in your code. First, there's a redundant import and use of `pickle`, which conflicts with our discussion about using `joblib` for loading both the model and the scaler. Let's correct these issues and ensure the code is consistent with using `joblib` for loading:
+
+```python
 import streamlit as st
 import pandas as pd
 from joblib import load
 
-# Load pre-trained model and scaler
-scaler = pickle.load(open('growcast_scaler.pkl', 'rb'))
-# Using joblib
-from joblib import load
+# Correctly load pre-trained model and scaler with joblib
+scaler = load('growcast_scaler.joblib')  # Make sure to convert your scaler to '.joblib' format if not already
 model = load('growcast_model.joblib')
-
 
 # **Data Loading and Preparation**
 def get_maize_data():
@@ -69,7 +69,7 @@ def main():
     soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature = add_sidebar(data) 
 
     st.title("GrowCast: Precision Yield Forecasting")
-    # Add app description
     st.write("This application forecasts maize yield based on various growth parameters using a precision agriculture model.")
 
-    # Prediction and Yield
+    # You might want to call get_prediction here and display the results
+    predicted_yield = get_prediction(soil_ph, p2o5, k
