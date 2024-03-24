@@ -1,10 +1,14 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import pickel
+from joblib import load
 
 # Load pre-trained model and scaler
 scaler = pickle.load(open('growcast_scaler.pkl', 'rb'))
-model = pickle.load(open("growcast_model.pkl", "rb"))
+# Using joblib
+from joblib import load
+model = load('growcast_model.joblib')
+
 
 # **Data Loading and Preparation**
 def get_maize_data():
