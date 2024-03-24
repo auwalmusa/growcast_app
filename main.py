@@ -27,34 +27,7 @@ def add_sidebar(data):
 
     return soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature
 
-# **Prediction Function**
-def get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature): 
-    input_data = pd.DataFrame({
-        'SoilPH': [soil_ph],
-        'P2O5': [p2o5],
-        'K2O': [k2o],
-        'Zn': [zn],
-        'ClayContent': [clay_content],
-        'ECa': [eca],
-        'DraughtFc': [draught_force],
-        'Conelnde': [cone_index],
-        'Precipitation': [precipitation],
-        'Temperature': [temperature]
-    })
-
-    scaled_data = scaler.transform(input_data)
-    prediction = model.predict(scaled_data)[0]
-    return prediction
-
-# **Yield Range Logic**
-def get_yield_class(predicted_yield):
-    if predicted_yield >= 9.0:
-        yield_class = "high"
-    elif predicted_yield >= 6.0:
-        yield_class = "medium"
-    else:
-        yield_class = "low"
-    return yield_class
+# Complete the application logic here as previously outlined
 
 # **Main Application**
 def main():
@@ -70,6 +43,10 @@ def main():
     # Perform prediction and display results
     predicted_yield = get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature)
     yield_class = get_yield_class(predicted_yield)
-    
+
     # Display the prediction and yield class using st.metric
-    st.metric(label
+    st.metric(label="Predicted Yield (tons/hectare)", value=f"{predicted_yield:.2f}", delta=yield_class)
+
+if __name__ == "__main__":
+    main()
+
