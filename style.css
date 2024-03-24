@@ -1,0 +1,11 @@
+.yield-status.high { 
+    background-color: #1b5e20; /* Forest green */
+}
+
+.yield-status.medium {
+    background-color: #ffcc00; /* Yellow-orange */
+}
+
+.yield-status.low {
+    background-color:  #dc3545; /* Reddish */
+}
