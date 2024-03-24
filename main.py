@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import pickel
 from joblib import load
 
 # Load pre-trained model and scaler
