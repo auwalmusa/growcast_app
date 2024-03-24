@@ -3,7 +3,7 @@ import pandas as pd
 from joblib import load
 
 # Load pre-trained model and scaler with joblib
-scaler = load('growcast_scaler.joblib')  # Ensure the scaler is in '.joblib' format
+scaler = load('growcast_scaler.joblib')
 model = load('growcast_model.joblib')
 
 # **Data Loading and Preparation**
@@ -71,10 +71,5 @@ def main():
     predicted_yield = get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature)
     yield_class = get_yield_class(predicted_yield)
     
-    # Ensure the predicted_yield is a string for st.metric
-    st.metric(label="Predicted Yield (tons/hectare)", value="10.5", label="Medium")
-
-
-
-if __name__ == "__main__":
-    main()
+    # Display the prediction and yield class using st.metric
+    st.metric(label
