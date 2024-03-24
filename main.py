@@ -1,6 +1,3 @@
-It looks like the error you're encountering is due to attempting to run non-code text as Python code. The explanation I provided was meant to guide you on how to modify your Python script, not to be copied directly into it. Let's clarify by providing a clean version of the corrected code without any explanatory comments or instructions. This is what you should have in your Python script file (`main.py` or whatever name you've given it) for your Streamlit application:
-
-```python
 import streamlit as st
 import pandas as pd
 from joblib import load
