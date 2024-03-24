@@ -1,6 +1,3 @@
-My apologies for the oversight. Let's include the final parts of the code to ensure the application is complete and functional. This part is crucial for displaying the predicted yield and its classification based on the inputs from the sidebar. Here's the corrected and complete main function, including the missing lines:
-
-```python
 import streamlit as st
 import pandas as pd
 from joblib import load
