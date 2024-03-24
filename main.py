@@ -1,6 +1,3 @@
-I see a couple of issues that need correction in your code. First, there's a redundant import and use of `pickle`, which conflicts with our discussion about using `joblib` for loading both the model and the scaler. Let's correct these issues and ensure the code is consistent with using `joblib` for loading:
-
-```python
 import streamlit as st
 import pandas as pd
 from joblib import load
