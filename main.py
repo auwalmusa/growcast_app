@@ -70,8 +70,9 @@ def main():
     # Perform prediction and display results
     predicted_yield = get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature)
     yield_class = get_yield_class(predicted_yield)
-    st.metric("Predicted Yield (tons/hectare)", value=predicted_yield, label=yield_class) 
+    
+    # Ensure the predicted_yield is a string for st.metric
+    st.metric("Predicted Yield (tons/hectare)", value=str(predicted_yield), label=yield_class)
 
 if __name__ == "__main__":
     main()
-
