@@ -1,18 +1,20 @@
+It looks like the error you're encountering is due to attempting to run non-code text as Python code. The explanation I provided was meant to guide you on how to modify your Python script, not to be copied directly into it. Let's clarify by providing a clean version of the corrected code without any explanatory comments or instructions. This is what you should have in your Python script file (`main.py` or whatever name you've given it) for your Streamlit application:
+
+```python
 import streamlit as st
 import pandas as pd
 from joblib import load
 
-# Correctly load pre-trained model and scaler with joblib
-scaler = load('growcast_scaler.joblib')  # Make sure to convert your scaler to '.joblib' format if not already
-model = load('growcast_model.joblib')
+# Load pre-trained model and scaler
+scaler = load('growcast_scaler.joblib')  # Ensure this file is in your project directory or specify the correct path
+model = load('growcast_model.joblib')  # Ensure this file is in your project directory or specify the correct path
 
-# **Data Loading and Preparation**
+# Data Loading and Preparation
 def get_maize_data():
     data = pd.read_csv("maize_yield_prediction_dataset.csv")
-    # Add any potential data cleaning steps here if needed 
     return data
 
-# **Sidebar**
+# Sidebar
 def add_sidebar(data):
     st.sidebar.header("Maize Growth Parameters")
     soil_ph = st.sidebar.slider("Soil pH", min_value=data['soilph'].min(), max_value=data['soilph'].max(), value=data['soilph'].mean())
@@ -28,7 +30,7 @@ def add_sidebar(data):
 
     return soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature
 
-# **Prediction Function**
+# Prediction Function
 def get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature): 
     input_data = pd.DataFrame({
         'SoilPH': [soil_ph],
@@ -43,11 +45,11 @@ def get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, con
         'Temperature': [temperature]
     })
 
-    scaled_data = scaler.transform(input_data) 
+    scaled_data = scaler.transform(input_data)
     prediction = model.predict(scaled_data)[0]
     return prediction
 
-# **Yield Range Logic**
+# Yield Range Logic
 def get_yield_class(predicted_yield):
     if predicted_yield >= 9.0:
         yield_class = "high"
@@ -57,7 +59,7 @@ def get_yield_class(predicted_yield):
         yield_class = "low"
     return yield_class
 
-# **Main Application**
+# Main Application
 def main():
     st.set_page_config(page_title="GrowCast", page_icon="🌱", layout="wide")
     data = get_maize_data()  # Load the data
@@ -68,5 +70,4 @@ def main():
     st.title("GrowCast: Precision Yield Forecasting")
     st.write("This application forecasts maize yield based on various growth parameters using a precision agriculture model.")
 
-    # You might want to call get_prediction here and display the results
-    predicted_yield = get_prediction(soil_ph, p2o5, k
+    predicted_yield = get_prediction(soil_ph, p2o
