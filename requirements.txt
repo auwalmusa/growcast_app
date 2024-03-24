@@ -1,5 +1,5 @@
 streamlit
 pandas
-scikit-learn
-matplotlib
 joblib
+xgboost==1.4.2  # Specify the exact version if needed
+scikit-learn  # Add other libraries as necessary
