@@ -14,14 +14,14 @@ def get_maize_data():
 # **Sidebar**
 def add_sidebar(data):
     st.sidebar.header("Maize Growth Parameters")
-    soil_ph = st.sidebar.slider("Soil pH", min_value=data['soilph'].min(), max_value=data['soilph'].max(), value=data['soilph'].mean())
+    soilph = st.sidebar.slider("Soil pH", min_value=data['soilph'].min(), max_value=data['soilph'].max(), value=data['soilph'].mean())
     p2o5 = st.sidebar.slider("P2O5", min_value=data['p2o5'].min(), max_value=data['p2o5'].max(), value=data['p2o5'].mean())
     k2o = st.sidebar.slider("K2O", min_value=data['k2o'].min(), max_value=data['k2o'].max(), value=data['k2o'].mean())
     zn = st.sidebar.slider("Zinc (Zn)", min_value=data['zn'].min(), max_value=data['zn'].max(), value=data['zn'].mean())
-    clay_content = st.sidebar.slider("Clay Content", min_value=data['claycontent'].min(), max_value=data['claycontent'].max(), value=data['claycontent'].mean())
+    claycontent = st.sidebar.slider("Clay Content", min_value=data['claycontent'].min(), max_value=data['claycontent'].max(), value=data['claycontent'].mean())
     eca = st.sidebar.slider("Electrical Conductivity (ECa)", min_value=data['eca'].min(), max_value=data['eca'].max(), value=data['eca'].mean())
-    draught_force = st.sidebar.slider("Draught Force", min_value=data['draughtforce'].min(), max_value=data['draughtforce'].max(), value=data['draughtforce'].mean())
-    cone_index = st.sidebar.slider("Cone Index", min_value=data['coneindex'].min(), max_value=data['coneindex'].max(), value=data['coneindex'].mean())
+    draughtforce = st.sidebar.slider("Draught Force", min_value=data['draughtforce'].min(), max_value=data['draughtforce'].max(), value=data['draughtforce'].mean())
+    coneindex = st.sidebar.slider("Cone Index", min_value=data['coneindex'].min(), max_value=data['coneindex'].max(), value=data['coneindex'].mean())
     precipitation = st.sidebar.slider("Precipitation", min_value=data['precipitation'].min(), max_value=data['precipitation'].max(), value=data['precipitation'].mean())
     temperature = st.sidebar.slider("Temperature", min_value=data['temperature'].min(), max_value=data['temperature'].max(), value=data['temperature'].mean())
 
