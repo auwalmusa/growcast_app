@@ -25,7 +25,7 @@ def add_sidebar(data):
     precipitation = st.sidebar.slider("Precipitation", min_value=data['precipitation'].min(), max_value=data['precipitation'].max(), value=data['precipitation'].mean())
     temperature = st.sidebar.slider("Temperature", min_value=data['temperature'].min(), max_value=data['temperature'].max(), value=data['temperature'].mean())
 
-    return soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature
+    return soilph, p2o5, k2o, zn, claycontent, eca, draughtforce, coneindex, precipitation, temperature
 
 # **Main Application**
 def main():
@@ -33,13 +33,13 @@ def main():
     data = get_maize_data()
 
     # Sidebar inputs
-    soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature = add_sidebar(data)
+    soilph, p2o5, k2o, zn, claycontent, eca, draughtforce, coneindex, precipitation, temperature = add_sidebar(data)
 
     st.title("GrowCast: AI-Powered Crop Yield Forecasting") 
     st.write("This application forecasts maize yield based on various growth parameters using a precision agriculture model.")
 
     # Perform prediction and display results 
-    predicted_yield = get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature)
+    predicted_yield = get_prediction(soilph, p2o5, k2o, zn, claycontent, eca, draughtforce, coneindex, precipitation, temperature)
     yield_class = get_yield_class(predicted_yield)  
 
     # Display the prediction and yield class using st.metric
@@ -48,7 +48,7 @@ def main():
 # **Helper Functions**
 def get_prediction(soil_ph, p2o5, k2o, zn, claycontent, eca, draughtforce, coneindex, precipitation, temperature):
     input_data = pd.DataFrame({
-        'soilph': [soil_ph],
+        'soilph': [soilph],
         'p2o5': [p2o5],
         # ... Add other features 
     })
