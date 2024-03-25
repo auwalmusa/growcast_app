@@ -41,8 +41,10 @@ def main():
     st.write("This application forecasts maize yield based on various growth parameters using a precision agriculture model.")
 
     # Perform prediction and display results
+    print(f"soil_ph: {soil_ph}, p2o5: {p2o5}, k2o: {k2o}, zn: {zn}, clay_content: {clay_content}, eca: {eca}, draught_force: {draught_force}, cone_index: {cone_index}, precipitation: {precipitation}, temperature: {temperature}")
     predicted_yield = get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature)
-    yield_class = get_yield_class(predicted_yield)
+
+    
 
     # Display the prediction and yield class using st.metric
     st.metric(label="Predicted Yield (tons/hectare)", value=f"{predicted_yield:.2f}", delta=yield_class)
