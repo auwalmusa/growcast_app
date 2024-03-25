@@ -46,7 +46,7 @@ def main():
     st.metric(label="Predicted Yield (tons/hectare)", value=f"{predicted_yield:.2f}", delta=yield_class)
 
 # **Helper Functions**
-def get_prediction(soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature):
+def get_prediction(soil_ph, p2o5, k2o, zn, claycontent, eca, draughtforce, coneindex, precipitation, temperature):
     input_data = pd.DataFrame({
         'soilph': [soil_ph],
         'p2o5': [p2o5],
