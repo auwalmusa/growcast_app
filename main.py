@@ -35,7 +35,7 @@ def main():
     # Sidebar inputs
     soil_ph, p2o5, k2o, zn, clay_content, eca, draught_force, cone_index, precipitation, temperature = add_sidebar(data)
 
-   
+    st.title("GrowCast: AI-Powered Crop Yield Forecasting") 
     st.write("This application forecasts maize yield based on various growth parameters using a precision agriculture model.")
 
     # Perform prediction and display results 
